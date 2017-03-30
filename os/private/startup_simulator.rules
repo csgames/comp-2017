@@ -1,0 +1,1 @@
+KERNEL=="startup_simulator", MODE="0666"
