@@ -1,0 +1,5 @@
+* Docker
+1. sudo docker build -t wtiiaas .
+2. sudo docker create -v /home/user/Documents/csgames2017/src/wtiiaas/www/:/var/www wtiiaas
+3. sudo docker start 152430b8eb1b
+4. sudo docker exec -it 152430b8eb1b bash

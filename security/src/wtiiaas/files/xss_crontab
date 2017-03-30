@@ -1,0 +1,1 @@
+* * * * * xvfb-run phantomjs --ignore-ssl-errors=true --local-to-remote-url-access=true --web-security=false --ssl-protocol=any /root/xss.js

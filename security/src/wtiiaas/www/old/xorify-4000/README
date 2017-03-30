@@ -1,0 +1,24 @@
+Context
+-------
+This module describes our cryptographic stack. We describe the algorithm used to
+store passwords and mission critical data. We hired some top-shelf consultant
+from Stratfor to develop this algorithm, so it should be pretty legit.
+
+Changelog
+---------
+2014/05/04 
+Initial release
+
+2015/03/25
+Fixed bug
+
+2015/08/12
+MODULE DEPRECATED! Do not use this! It's CRAPTOGRAPHY! 
+
+
+Deprecation
+-----------
+We do not use this module anymore, as it was proven to be vulnerable! However,
+we haven't taken the time to reset any passwords because we were too busy
+playing ping-pong.
+
