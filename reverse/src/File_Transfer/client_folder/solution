@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import socket
+import base64
+import sys
+
+HOST = sys.argv[1]
+PORT = 4919
+BUFFER_SIZE = 2048
+
+def login(user,password,skt):
+    skt.send("\x01"+user)
+    data = skt.recv(1024)
+    print data
+    skt.send(password)
+    data = skt.recv(1024)
+    print data
+
+def leave(skt):
+    skt.send("\x00")
+
+def upload(skt,file_name):
+    skt.send("\x04"+file_name)
+    f = open("local/"+file_name,"r")
+    content = f.read()
+    f.close()
+    skt.send(base64.b64encode(content))
+
+def list_files(skt):
+    skt.send("\x02")
+    files = ""
+    while 1:
+        data = skt.recv(2048)
+        files += data
+        if files[-1] == "\x04":
+            break
+    files = files.split('\x03')
+    for file_name in files:
+        print base64.b64decode(file_name)
+
+def download(skt,file_name):
+    skt.send("\x03"+file_name)
+    file_content = ""
+    while 1:
+        data = skt.recv(2048)
+        file_content += data
+        if file_content[-1] == "\x04":
+            break
+    f = open("local/"+file_name,"w")
+    f.write(base64.b64decode(file_content[:-1]))
+    f.close()
+
+username = sys.argv[2]
+password = sys.argv[3]
+option = sys.argv[4]
+
+skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+skt.connect((HOST, PORT))
+
+banner = skt.recv(BUFFER_SIZE)
+print banner
+
+login(username,password,skt)
+
+if option == "upload":
+    upload(skt,sys.argv[5])
+
+elif option == "list_files":
+    list_files(skt)
+
+elif option == "download":
+    download(skt,sys.argv[5])
+
+leave(skt)
+
+data = skt.recv(1024)
+print data
+
+skt.close()
