@@ -1,0 +1,78 @@
+[
+    {
+        "name": "espresso",
+        "recipe": {
+            "size": "doppio",
+            "length": "normale",
+            "inverted": false,
+            "ingredients": {
+            }
+        }
+    },
+    {
+        "name": "lungo",
+        "recipe": {
+            "size": "doppio",
+            "length": "lungo",
+            "inverted": false,
+            "ingredients": {
+            }
+        }
+    },
+    {
+        "name": "macchiato",
+        "recipe": {
+            "size": "doppio",
+            "length": "normale",
+            "inverted": false,
+            "ingredients": {
+                "milk": 50
+            }
+        }
+    },
+    {
+        "name": "cortado",
+        "recipe": {
+            "size": "doppio",
+            "length": "normale",
+            "inverted": false,
+            "ingredients": {
+                "milk": 50,
+                "foam": 25
+            }
+        }
+    },
+    {
+        "name": "americano",
+        "recipe": {
+            "size": "doppio",
+            "length": "normale",
+            "inverted": false,
+            "ingredients": {
+                "hot_water": 50
+            }
+        }
+    },
+    {
+        "name": "latté",
+        "recipe": {
+            "size": "doppio",
+            "length":"normale",
+            "inverted": false,
+            "ingredients": {
+                "milk": 150
+            }
+        }
+    },
+    {
+        "name": "cappuccino",
+        "recipe": {
+            "size": "doppio",
+            "length": "normale",
+            "inverted": false,
+            "ingredients": {
+                "foam": 150
+            }
+        }
+    }
+]
